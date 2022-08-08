@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'recaptha-tutorial';
+  recapthaSiteKey:string = '6Lf30VkhAAAAAE9vOpX08nWeyXw2n0ETJm49h6S_'
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
 }
