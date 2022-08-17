@@ -1,1 +1,29 @@
-<re-captcha (resolved)="resolved($event)" siteKey={{recapthaSiteKey}}></re-captcha>
+<form [formGroup]="captchform" (submit)="submit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="passsword">
+    </mat-form-field>
+    <!-- <re-captcha (resolved)="resolved($event)" siteKey={{recapthaSiteKey}}  ></re-captcha>  -->
+    <!-- <div *ngIf="[class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" > -->
+
+    <!-- </div> -->
+    <ngx-recaptcha2 
+    #captcha
+    [siteKey]="recapthaSiteKey"
+    formControlName="captchaToken"
+    ></ngx-recaptcha2>
+    <button mat-raised-button color="primary" type="submit">Primary</button>
+
+</form>
+
+<button mat-raised-button color="primary" type="submit" (click)="getNames()">Primary</button>
+
+
+<!-- <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required
+        [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha> -->
+<!-- <re-captcha (resolved)="resolved($event)" siteKey={{recapthaSiteKey}}></re-captcha> -->
